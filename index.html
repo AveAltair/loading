@@ -498,7 +498,7 @@
   <div class="topbar">
     <div class="topbar-left">
       <div class="logo-mark">GM</div>
-      <div class="server-name"><span>SAND</span>BOX &nbsp;·&nbsp; 한국 서버</div>
+      <div class="server-name"><span>SAND</span>BOX &nbsp;·&nbsp; 빅시티 자유공원</div>
     </div>
     <div class="topbar-right">
       <div class="stat-item">
@@ -515,7 +515,7 @@
       <div class="divider-v"></div>
       <div class="stat-item">
         <span class="stat-label">맵</span>
-        <span class="stat-value" id="map-display">gm_construct</span>
+        <span class="stat-value" id="map-display">gm_bigcity_improved</span>
       </div>
     </div>
   </div>
@@ -533,7 +533,7 @@
 
       <div class="map-strip">
         <div class="map-tag">맵</div>
-        <div class="map-name" id="map-full">gm_construct</div>
+        <div class="map-name" id="map-full">gm_bigcity_improved</div>
         <div class="map-tag" style="margin-left:8px;">모드</div>
         <div class="map-name">Sandbox</div>
       </div>
@@ -543,12 +543,11 @@
         <ul class="rules-list">
           <li>프롭 스팸 및 서버에 렉을 유발하는 행위를 금지합니다.</li>
           <li>다른 플레이어의 빌드를 허락 없이 파괴하거나 방해하지 마세요.</li>
-          <li>거대한 프롭이나 맵 밖으로 나가는 빌드는 금지합니다.</li>
+          <li>욕설은 허용하나 비하 발언은 금지합니다. (특히 일베/메갈 등 혐오 표현 및 패드립 즉시 차단)</li>
           <li>어드민의 지시에 반드시 따라야 합니다.</li>
           <li>채팅 및 음성에서 욕설, 차별적 발언을 금지합니다.</li>
           <li>다른 플레이어를 의도적으로 공격하거나 방해하지 마세요.</li>
-          <li>서버 성능을 저하시키는 복잡한 컨스트레인트나 스크립트를 금지합니다.</li>
-          <li>분쟁 발생 시 @ 를 입력해 관리자를 호출하세요.</li>
+          <li>신고 시스템(Report)을 장난이나 허위 사실로 악용할 경우 제재 대상이 됩니다.</li>
         </ul>
       </div>
 
@@ -604,7 +603,7 @@
 function GameDetails(servername, serverurl, mapname, maxplayers, steamid, gamemode) {
   document.querySelector('.server-name').innerHTML = servername
     ? servername.replace(/([^a-zA-Z가-힣 ]*)(.+)/, '$1<span>$2</span>')
-    : '<span>SAND</span>BOX &nbsp;·&nbsp; 한국 서버';
+    : '<span>SAND</span>BOX &nbsp;·&nbsp; 빅시티 자유공원';
   if (mapname) {
     document.getElementById('map-display').textContent = mapname;
     document.getElementById('map-full').textContent = mapname;
@@ -645,12 +644,9 @@ function UpdateServerInfo(hostname, mapname, ip, gamemode, version) {}
 
 /* ── 팁 로테이션 ── */
 const tips = [
-  "Q 키로 스폰 메뉴를 열어 프롭, 엔티티, NPC 등을 스폰할 수 있습니다.",
-  "C 키로 컨텍스트 메뉴를 열어 선택한 오브젝트의 속성을 수정하세요.",
-  "툴건(Tool Gun)으로 웰드, 로프, 스러스터 등 다양한 컨스트레인트를 사용해보세요.",
-  "E 키로 오브젝트를 집고, Shift+E 로 회전 없이 정밀하게 배치할 수 있습니다.",
-  "피직스건으로 오브젝트를 집어던지거나 Gravity Gun 처럼 사용할 수 있습니다.",
-  "Undo(Z 키)로 방금 스폰하거나 변경한 오브젝트를 되돌릴 수 있습니다.",
+  "f4 키를 눌러 GPHINE을 사용해 보세요",
+  "서버는 호스팅을 통해 가동 중 입니다",
+  "서버 내에 있는 애드온을 사용해 다양한 컨텐츠를 즐겨보세요",
 ];
 
 let tipIdx = 0;
@@ -667,7 +663,7 @@ showTip();
 setInterval(showTip, 7000);
 
 /* ── 실시간 플레이어 목록 ── */
-const API_URL = 'https://yoursite.com/api/update.php'; // 여기 바꾸기
+const API_URL = 'http://gmod-loading.gamer.gd//update.php'; // 여기 바꾸기
 
 function pingQuality(ms) {
   if (ms < 60)  return 'good';
